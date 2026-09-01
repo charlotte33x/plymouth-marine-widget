@@ -150,7 +150,8 @@ water_data = stormglass["water"]
 extremes_data = stormglass["extremes"]
 sea_level_data = stormglass["sea_level"]
 
-sea_temp = water_data["hours"][0]["waterTemperature"]["sg"]
+st.write(water_data)
+st.stop()
 
 # -----------------------
 # CURRENT TIDE
