@@ -83,7 +83,7 @@ else:
 # STORMGLASS
 # -----------------------
 
-@st.cache_data(ttl=1800)
+@st.cache_data(ttl=86400)
 def get_stormglass_data():
 
     start = arrow.now().floor("day")
