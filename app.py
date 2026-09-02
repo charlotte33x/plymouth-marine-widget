@@ -99,11 +99,17 @@ else:
 
 illumination = (1 - cos(2 * pi * phase / 29.53)) / 2
 illumination_percent = round(illumination * 100)
+LUNAR_CYCLE = 29.53
 FULL_MOON_AGE = 14.77
 
-days_until_full = abs(FULL_MOON_AGE - phase)
+if phase <= FULL_MOON_AGE:
+    days_until_full = FULL_MOON_AGE - phase
+else:
+    days_until_full = (
+        LUNAR_CYCLE - phase + FULL_MOON_AGE
+    )
 
-days_until_full
+days_until_full = round(days_until_full, 1)
 
 if phase < 3 or phase > 27:
     tidal_influence = "🌊 Spring Tide Period"
@@ -326,7 +332,7 @@ st.markdown(
 # -----------------------
 
 
-st.markdown("#### 📈 Tidal Curve")
+
 
 
 df = pd.DataFrame(sea_level_data["data"])
@@ -337,8 +343,7 @@ df["height"] = df["sg"]
 fig = px.line(
     df,
     x="time",
-    y="height",
-    title="Plymouth Tide Today"
+    y="height"
 )
 
 fig.update_traces(
@@ -368,9 +373,15 @@ fig.update_layout(
     height=200,
     plot_bgcolor="white",
     paper_bgcolor="white",
-    xaxis_title="Time",
-    yaxis_title="Tide Height (m)",
-    title_x=0.5
+   xaxis_title="",
+   yaxis_title="",
+    title_x=0.5,
+    margin=dict(
+    l=10,
+    r=10,
+    t=10,
+    b=10
+)
 )
 
 st.plotly_chart(
