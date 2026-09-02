@@ -290,7 +290,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-st.subheader("📅 Forecast")
+st.markdown("##### 📅 3 day Forecast")
 
 st.markdown(
     f"""
