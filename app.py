@@ -255,44 +255,44 @@ st.set_page_config(
     page_icon="🌊",
     layout="wide"
 )
-
 st.markdown(
-    "<h1>🌊 Plymouth Marine</h1>",
+    "<h3 style='color:#d63384;'>🌊 Plymouth Marine</h3>",
     unsafe_allow_html=True
 )
 
 
-air_col, sea_col, tide_col, moon_col = st.columns(4)
+row1_col1, row1_col2 = st.columns(2)
 
-with air_col:
+with row1_col1:
     st.metric(
         "🌤️ Air",
         f"{temperature}°C"
     )
 
-with sea_col:
+with row1_col2:
     st.metric(
         "🌡️ Sea",
         f"{sea_temp:.1f}°C"
     )
 
-with tide_col:
+row2_col1, row2_col2 = st.columns(2)
+
+with row2_col1:
     st.metric(
         "🌊 Tide",
         f"{current_height:.2f}m"
     )
 
-with moon_col:
+with row2_col2:
     st.metric(
         "🌙 Moon",
         f"{illumination_percent}%"
     )
 
-st.caption(phase_name)
-
 st.caption(
-    f"Next Tide: {next_tide_time} • {next_tide_height:.2f}m"
+    f"{phase_name} • 🌊 {next_tide_time}"
 )
+
 st.markdown("### 📅 Forecast")
 
 day1, day2, day3 = st.columns(3)
