@@ -99,15 +99,20 @@ else:
 
 illumination = (1 - cos(2 * pi * phase / 29.53)) / 2
 illumination_percent = round(illumination * 100)
+FULL_MOON_AGE = 14.77
+
+days_until_full = abs(FULL_MOON_AGE - phase)
+
+days_until_full
 
 if phase < 3 or phase > 27:
     tidal_influence = "🌊 Spring Tide Period"
 elif 12 <= phase <= 17:
-    tidal_influence = "🌊 Approaching Spring Tide"
+    tidal_influence = "🌊 Near Spring Tide"
 elif 6 <= phase <= 9:
     tidal_influence = "🌊 Neap Tide Period"
 elif 20 <= phase <= 23:
-    tidal_influence = "🌊 Approaching Neap Tide"
+    tidal_influence = "🌊 Near Neap Tide"
 else:
     tidal_influence = "🌊 Transition Between Spring and Neap"
 
@@ -278,7 +283,6 @@ st.markdown(
     unsafe_allow_html=True
 )
 st.markdown("#### 🌙 Moon")
-
 st.markdown(
     f"""
     <div style="
@@ -291,6 +295,8 @@ st.markdown(
     <b>Age:</b> {round(phase,1)} days
     <br>
     <b>Illumination:</b> {illumination_percent}%
+    <br>
+    <b>🌕 Next Full Moon:</b> {days_until_full} days
     </div>
     """,
     unsafe_allow_html=True
@@ -308,6 +314,8 @@ st.markdown(
     <b>Current:</b> {current_height:.2f}m
     <br>
     <b>Next High:</b> {next_tide_time} • {next_tide_height:.2f}m
+    <br>
+    <b>Status:</b> {tidal_influence}
     </div>
     """,
     unsafe_allow_html=True
