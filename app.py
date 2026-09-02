@@ -260,55 +260,57 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-
 st.subheader("🌡️ Temperature")
 
-temp_col1, temp_col2 = st.columns(2)
-
-with temp_col1:
-    st.metric(
-        "Air",
-        f"{temperature}°C"
-    )
-
-with temp_col2:
-    st.metric(
-        "Sea",
-        f"{sea_temp:.1f}°C"
-    )
+st.markdown(
+    f"""
+    <div style="
+    background:#fdeef6;
+    padding:15px;
+    border-radius:12px;
+    ">
+    <b>Air:</b> {temperature}°C
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <b>Sea:</b> {sea_temp:.1f}°C
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
 st.subheader("🌊 Tides")
 
-st.metric(
-    "Current Height",
-    f"{current_height:.2f}m"
+st.markdown(
+    f"""
+    <div style="
+    background:#fdeef6;
+    padding:15px;
+    border-radius:12px;
+    ">
+    <b>Current:</b> {current_height:.2f}m
+    <br>
+    <b>Next High:</b> {next_tide_time} • {next_tide_height:.2f}m
+    </div>
+    """,
+    unsafe_allow_html=True
 )
+st.subheader("📅 Forecast")
 
-st.caption(
-    f"Next High Tide: {next_tide_time} • {next_tide_height:.2f}m"
+st.markdown(
+    f"""
+    <div style="
+    background:#fdeef6;
+    padding:15px;
+    border-radius:12px;
+    ">
+    <b>{pd.to_datetime(forecast_dates[0]).strftime("%a")}</b> {round(forecast_max[0])}°
+    &nbsp;&nbsp;|&nbsp;&nbsp;
+    <b>{pd.to_datetime(forecast_dates[1]).strftime("%a")}</b> {round(forecast_max[1])}°
+    &nbsp;&nbsp;|&nbsp;&nbsp;
+    <b>{pd.to_datetime(forecast_dates[2]).strftime("%a")}</b> {round(forecast_max[2])}°
+    </div>
+    """,
+    unsafe_allow_html=True
 )
-
-st.markdown("### 📅 Forecast")
-
-day1, day2, day3 = st.columns(3)
-
-with day1:
-    st.metric(
-        pd.to_datetime(forecast_dates[0]).strftime("%a"),
-        f"{round(forecast_max[0])}°"
-    )
-
-with day2:
-    st.metric(
-        pd.to_datetime(forecast_dates[1]).strftime("%a"),
-        f"{round(forecast_max[1])}°"
-    )
-
-with day3:
-    st.metric(
-        pd.to_datetime(forecast_dates[2]).strftime("%a"),
-        f"{round(forecast_max[2])}°"
-    )
 # -----------------------
 # LIVE TIDAL CURVE
 # -----------------------
@@ -364,4 +366,22 @@ fig.update_layout(
 st.plotly_chart(
     fig,
     use_container_width=True
+)
+st.subheader("🌙 Moon")
+
+st.markdown(
+    f"""
+    <div style="
+    background:#fdeef6;
+    padding:15px;
+    border-radius:12px;
+    ">
+    <b>Phase:</b> {phase_name}
+    <br>
+    <b>Age:</b> {round(phase,1)} days
+    <br>
+    <b>Illumination:</b> {illumination_percent}%
+    </div>
+    """,
+    unsafe_allow_html=True
 )
