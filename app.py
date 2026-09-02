@@ -325,9 +325,9 @@ st.markdown(
 # LIVE TIDAL CURVE
 # -----------------------
 
-st.divider()
 
-st.subheader("📈 Tidal Curve")
+st.markdown("####📈 Tidal Curve")
+
 
 df = pd.DataFrame(sea_level_data["data"])
 
