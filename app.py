@@ -261,36 +261,31 @@ st.markdown(
 )
 
 
-row1_col1, row1_col2 = st.columns(2)
+st.subheader("🌡️ Temperature")
 
-with row1_col1:
+temp_col1, temp_col2 = st.columns(2)
+
+with temp_col1:
     st.metric(
-        "🌤️ Air",
+        "Air",
         f"{temperature}°C"
     )
 
-with row1_col2:
+with temp_col2:
     st.metric(
-        "🌡️ Sea",
+        "Sea",
         f"{sea_temp:.1f}°C"
     )
 
-row2_col1, row2_col2 = st.columns(2)
+st.subheader("🌊 Tides")
 
-with row2_col1:
-    st.metric(
-        "🌊 Tide",
-        f"{current_height:.2f}m"
-    )
-
-with row2_col2:
-    st.metric(
-        "🌙 Moon",
-        f"{illumination_percent}%"
-    )
+st.metric(
+    "Current Height",
+    f"{current_height:.2f}m"
+)
 
 st.caption(
-    f"{phase_name} • 🌊 {next_tide_time}"
+    f"Next High Tide: {next_tide_time} • {next_tide_height:.2f}m"
 )
 
 st.markdown("### 📅 Forecast")
