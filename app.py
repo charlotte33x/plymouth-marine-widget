@@ -79,24 +79,7 @@ forecast_dates = weather_data["daily"]["time"]
 forecast_max = weather_data["daily"]["temperature_2m_max"]
 forecast_min = weather_data["daily"]["temperature_2m_min"]
 
-st.subheader("📅 Forecast")
 
-st.markdown(
-    f"""
-    <div style="
-    background:#fdeef6;
-    padding:8px;
-    border-radius:12px;
-    ">
-    <b>{pd.to_datetime(forecast_dates[0]).strftime("%a")}</b> {round(forecast_max[0])}°
-    &nbsp;&nbsp;|&nbsp;&nbsp;
-    <b>{pd.to_datetime(forecast_dates[1]).strftime("%a")}</b> {round(forecast_max[1])}°
-    &nbsp;&nbsp;|&nbsp;&nbsp;
-    <b>{pd.to_datetime(forecast_dates[2]).strftime("%a")}</b> {round(forecast_max[2])}°
-    </div>
-    """,
-    unsafe_allow_html=True
-)
 # -----------------------
 # MOON
 # -----------------------
@@ -303,6 +286,24 @@ st.markdown(
     <b>Air:</b> {temperature}°C
     &nbsp;&nbsp;&nbsp;&nbsp;
     <b>Sea:</b> {sea_temp:.1f}°C
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+st.subheader("📅 Forecast")
+
+st.markdown(
+    f"""
+    <div style="
+    background:#fdeef6;
+    padding:8px;
+    border-radius:12px;
+    ">
+    <b>{pd.to_datetime(forecast_dates[0]).strftime("%a")}</b> {round(forecast_max[0])}°
+    &nbsp;&nbsp;|&nbsp;&nbsp;
+    <b>{pd.to_datetime(forecast_dates[1]).strftime("%a")}</b> {round(forecast_max[1])}°
+    &nbsp;&nbsp;|&nbsp;&nbsp;
+    <b>{pd.to_datetime(forecast_dates[2]).strftime("%a")}</b> {round(forecast_max[2])}°
     </div>
     """,
     unsafe_allow_html=True
