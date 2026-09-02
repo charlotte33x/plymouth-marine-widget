@@ -276,10 +276,15 @@ st.markdown(
     "<h4 style='color:#c0518f;'>🌊 Plymouth Marine</h4>",
     unsafe_allow_html=True
 )
-st.caption(
-    f"Updated {datetime.now().strftime('%H:%M')}"
+import zoneinfo
+
+uk_time = datetime.now(
+    zoneinfo.ZoneInfo("Europe/London")
 )
 
+st.caption(
+    f"Updated {uk_time.strftime('%H:%M')}"
+)
 st.markdown("#### 🌡️ Temperature")
 
 st.markdown(
