@@ -326,7 +326,7 @@ st.markdown(
 # -----------------------
 
 
-st.markdown("####📈 Tidal Curve")
+st.markdown("#### 📈 Tidal Curve")
 
 
 df = pd.DataFrame(sea_level_data["data"])
