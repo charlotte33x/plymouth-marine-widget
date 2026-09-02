@@ -344,7 +344,7 @@ fig = px.line(
 fig.update_traces(
     line=dict(
         color="#e07ab2",
-        width=5
+        width=3
     )
 )
 
@@ -356,7 +356,7 @@ fig.add_trace(
         text=["Now"],
         textposition="top center",
         marker=dict(
-            size=18,
+            size=8,
             color="#ff1493",
             symbol="diamond"
         ),
@@ -365,7 +365,7 @@ fig.add_trace(
 )
 
 fig.update_layout(
-    height=100,
+    height=200,
     plot_bgcolor="white",
     paper_bgcolor="white",
     xaxis_title="Time",
