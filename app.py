@@ -8,7 +8,34 @@ import plotly.graph_objects as go
 from astral import moon
 from datetime import date, datetime, UTC
 from math import cos, pi
+st.markdown("""
+<style>
 
+.stApp {
+    background-color: #fffafc;
+}
+
+div[data-testid="stMetric"] {
+    background-color: #ffeef7;
+    padding: 12px;
+    border-radius: 12px;
+}
+
+div[data-testid="stAlert"] {
+    background-color: #ffe4f1;
+    border: none;
+}
+
+h1 {
+    color: #d63384;
+}
+
+h2, h3 {
+    color: #e754a6;
+}
+
+</style>
+""", unsafe_allow_html=True)
 # -----------------------
 # CONFIG
 # -----------------------
@@ -229,71 +256,67 @@ st.set_page_config(
     layout="wide"
 )
 
-st.title("🌊 Plymouth Marine Conditions")
+st.markdown(
+    "<h1>🌊 Plymouth Marine</h1>",
+    unsafe_allow_html=True
+)
 
-weather_col, moon_col = st.columns(2)
+top_left, top_right = st.columns(2)
 
-with weather_col:
-
-    st.info("🌤️ Weather")
-
+with top_left:
     st.metric(
-        "Temperature",
-        f"{temperature}°C"
+        "🌤️ Air",
+        f"{temperature}°C",
+        weather
     )
 
-    st.write(weather)
-
-    st.markdown("### 📅 Forecast")
-
-    for i in range(3):
-
-        day = pd.to_datetime(
-            forecast_dates[i]
-        ).strftime("%a")
-
-        st.write(
-            f"{day}: {forecast_max[i]}° / {forecast_min[i]}°"
-        )
-
-with moon_col:
-
-    st.info("🌙 Moon")
-
-    st.write(phase_name)
-    st.write(f"Illumination: {illumination_percent}%")
-    st.write(tidal_influence)
-
-st.divider()
-
-tide_col, sea_col = st.columns(2)
-
-with tide_col:
-
-    st.info("🌊 Tides")
-
+with top_right:
     st.metric(
-        "Current Height",
-        f"{current_height:.2f} m"
-    )
-
-    st.write(status)
-
-    st.write(f"🕖 {next_tide_time}")
-
-    st.write(
-        f"Height: {next_tide_height:.2f} m"
-    )
-
-with sea_col:
-
-    st.info("🌡️ Sea Temperature")
-
-    st.metric(
-        "Sea Surface Temperature",
+        "🌡️ Sea",
         f"{sea_temp:.1f}°C"
     )
 
+bottom_left, bottom_right = st.columns(2)
+
+with bottom_left:
+    st.metric(
+        "🌊 Tide",
+        f"{current_height:.2f}m",
+        status
+    )
+
+with bottom_right:
+    st.metric(
+        "🌙 Moon",
+        f"{illumination_percent}%"
+    )
+
+st.caption(phase_name)
+
+st.caption(
+    f"Next Tide: {next_tide_time} • {next_tide_height:.2f}m"
+)
+st.markdown("### 📅 Forecast")
+
+day1, day2, day3 = st.columns(3)
+
+with day1:
+    st.metric(
+        pd.to_datetime(forecast_dates[0]).strftime("%a"),
+        f"{round(forecast_max[0])}°"
+    )
+
+with day2:
+    st.metric(
+        pd.to_datetime(forecast_dates[1]).strftime("%a"),
+        f"{round(forecast_max[1])}°"
+    )
+
+with day3:
+    st.metric(
+        pd.to_datetime(forecast_dates[2]).strftime("%a"),
+        f"{round(forecast_max[2])}°"
+    )
 # -----------------------
 # LIVE TIDAL CURVE
 # -----------------------
@@ -338,7 +361,7 @@ fig.add_trace(
 )
 
 fig.update_layout(
-    height=500,
+    height=300,
     plot_bgcolor="white",
     paper_bgcolor="white",
     xaxis_title="Time",
