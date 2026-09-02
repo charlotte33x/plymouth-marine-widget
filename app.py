@@ -357,7 +357,7 @@ fig.add_trace(
     go.Scatter(
         x=[pd.to_datetime(closest_point["time"])],
         y=[current_height],
-        mode="markers+text",
+        mode="markers",
         text=["Now"],
         textposition="top center",
         marker=dict(
@@ -370,20 +370,29 @@ fig.add_trace(
 )
 
 fig.update_layout(
-    height=200,
+    height=150,
     plot_bgcolor="white",
     paper_bgcolor="white",
    xaxis_title="",
    yaxis_title="",
     title_x=0.5,
     margin=dict(
-    l=10,
-    r=10,
-    t=10,
-    b=10
+    l=0,
+    r=0,
+    t=0,
+    b=0
 )
+)
+fig.update_yaxes(
+    visible=False,
+    showgrid=False,
+    zeroline=False
 )
 
+fig.update_xaxes(
+    title_text="",
+    showgrid=False
+)
 st.plotly_chart(
     fig,
     use_container_width=True
