@@ -113,16 +113,20 @@ else:
 
 days_until_full = round(days_until_full, 1)
 
-if phase < 3 or phase > 27:
-    tidal_influence = "🌊 Spring Tide Period"
-elif 12 <= phase <= 17:
-    tidal_influence = "🌊 Near Spring Tide"
-elif 6 <= phase <= 9:
-    tidal_influence = "🌊 Neap Tide Period"
-elif 20 <= phase <= 23:
-    tidal_influence = "🌊 Near Neap Tide"
+if phase < 4 or phase > 25:
+    tidal_influence = "Spring Tide"
+
+elif 11 < phase < 18:
+    tidal_influence = "Spring Tide"
+
+elif 5 < phase < 10:
+    tidal_influence = "Neap Tide"
+
+elif 19 < phase < 24:
+    tidal_influence = "Neap Tide"
+
 else:
-    tidal_influence = "🌊 Transition Between Spring and Neap"
+    tidal_influence = "Transitional"
 
 # -----------------------
 # STORMGLASS
@@ -339,9 +343,11 @@ st.markdown(
     ">
     <b>Current:</b> {current_height:.2f}m
     <br>
+    <b>Tide:</b> {status}
+    <br>
     <b>Next High:</b> {next_tide_time} • {next_tide_height:.2f}m
     <br>
-    <b>Status:</b> {tidal_influence}
+    <b>State:</b> {tidal_influence}
     </div>
     """,
     unsafe_allow_html=True
