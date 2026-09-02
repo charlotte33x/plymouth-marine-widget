@@ -13,7 +13,7 @@ from math import cos, pi
 # CONFIG
 # -----------------------
 
-API_EY = st.secrets["STORMGLASS_API_KEY"]
+API_KEY = st.secrets["STORMGLASS_API_KEY"]
 
 LAT = 50.3755
 LNG = -4.1427
@@ -27,7 +27,10 @@ weather_url = (
     "?latitude=50.3755"
     "&longitude=-4.1427"
     "&current=temperature_2m,weather_code"
+    "&daily=temperature_2m_max,temperature_2m_min"
+    "&forecast_days=3"
 )
+
 
 weather_response = requests.get(weather_url)
 weather_data = weather_response.json()
@@ -45,7 +48,9 @@ weather_descriptions = {
 }
 
 weather = weather_descriptions.get(weather_code, "Unknown")
-
+forecast_dates = weather_data["daily"]["time"]
+forecast_max = weather_data["daily"]["temperature_2m_max"]
+forecast_min = weather_data["daily"]["temperature_2m_min"]
 # -----------------------
 # MOON
 # -----------------------
@@ -191,18 +196,19 @@ future_extremes = []
 
 for event in extremes_data["data"]:
 
-    event_time = datetime.fromisoformat(
-        event["time"]
+    event_time = pd.to_datetime(
+        event["time"],
+        utc=True
     )
 
-    if event_time > now:
+    if event_time.to_pydatetime() > now:
         future_extremes.append(event)
 
 if future_extremes:
 
     next_tide = future_extremes[0]
 
-    next_tide_time = datetime.fromisoformat(
+    next_tide_time = pd.to_datetime(
         next_tide["time"]
     ).strftime("%H:%M")
 
@@ -237,6 +243,18 @@ with weather_col:
     )
 
     st.write(weather)
+
+    st.markdown("### 📅 Forecast")
+
+    for i in range(3):
+
+        day = pd.to_datetime(
+            forecast_dates[i]
+        ).strftime("%a")
+
+        st.write(
+            f"{day}: {forecast_max[i]}° / {forecast_min[i]}°"
+        )
 
 with moon_col:
 
