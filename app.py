@@ -13,7 +13,7 @@ from math import cos, pi
 # CONFIG
 # -----------------------
 
-API_KEY = st.secrets["STORMGLASS_API_KEY"]
+API_EY = st.secrets["STORMGLASS_API_KEY"]
 
 LAT = 50.3755
 LNG = -4.1427
