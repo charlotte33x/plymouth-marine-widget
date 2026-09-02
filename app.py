@@ -261,31 +261,28 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-top_left, top_right = st.columns(2)
 
-with top_left:
+air_col, sea_col, tide_col, moon_col = st.columns(4)
+
+with air_col:
     st.metric(
         "🌤️ Air",
-        f"{temperature}°C",
-        weather
+        f"{temperature}°C"
     )
 
-with top_right:
+with sea_col:
     st.metric(
         "🌡️ Sea",
         f"{sea_temp:.1f}°C"
     )
 
-bottom_left, bottom_right = st.columns(2)
-
-with bottom_left:
+with tide_col:
     st.metric(
         "🌊 Tide",
-        f"{current_height:.2f}m",
-        status
+        f"{current_height:.2f}m"
     )
 
-with bottom_right:
+with moon_col:
     st.metric(
         "🌙 Moon",
         f"{illumination_percent}%"
