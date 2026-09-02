@@ -276,7 +276,9 @@ st.markdown(
     "<h4 style='color:#c0518f;'>🌊 Plymouth Marine</h4>",
     unsafe_allow_html=True
 )
-
+st.caption(
+    f"Updated {datetime.now().strftime('%H:%M')}"
+)
 
 st.markdown("#### 🌡️ Temperature")
 
