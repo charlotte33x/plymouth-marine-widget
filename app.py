@@ -17,7 +17,7 @@ st.markdown("""
 
 div[data-testid="stMetric"] {
     background-color: #ffeef7;
-    padding: 12px;
+    padding: 8px;
     border-radius: 12px;
 }
 
@@ -256,17 +256,18 @@ st.set_page_config(
     layout="wide"
 )
 st.markdown(
-    "<h3 style='color:#d63384;'>🌊 Plymouth Marine</h3>",
+    "<h4 style='color:#c0518f;'>🌊 Plymouth Marine</h4>",
     unsafe_allow_html=True
 )
 
-st.subheader("🌡️ Temperature")
+
+st.markdown("#### 🌡️ Temperature")
 
 st.markdown(
     f"""
     <div style="
     background:#fdeef6;
-    padding:15px;
+    padding:8px;
     border-radius:12px;
     ">
     <b>Air:</b> {temperature}°C
@@ -276,14 +277,32 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-
-st.subheader("🌊 Tides")
+st.markdown("#### 🌙 Moon")
 
 st.markdown(
     f"""
     <div style="
     background:#fdeef6;
-    padding:15px;
+    padding:8px;
+    border-radius:12px;
+    ">
+    <b>Phase:</b> {phase_name}
+    <br>
+    <b>Age:</b> {round(phase,1)} days
+    <br>
+    <b>Illumination:</b> {illumination_percent}%
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
+st.markdown("#### 🌊 Tides")
+
+st.markdown(
+    f"""
+    <div style="
+    background:#fdeef6;
+    padding:8px;
     border-radius:12px;
     ">
     <b>Current:</b> {current_height:.2f}m
@@ -293,24 +312,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-st.subheader("📅 Forecast")
 
-st.markdown(
-    f"""
-    <div style="
-    background:#fdeef6;
-    padding:15px;
-    border-radius:12px;
-    ">
-    <b>{pd.to_datetime(forecast_dates[0]).strftime("%a")}</b> {round(forecast_max[0])}°
-    &nbsp;&nbsp;|&nbsp;&nbsp;
-    <b>{pd.to_datetime(forecast_dates[1]).strftime("%a")}</b> {round(forecast_max[1])}°
-    &nbsp;&nbsp;|&nbsp;&nbsp;
-    <b>{pd.to_datetime(forecast_dates[2]).strftime("%a")}</b> {round(forecast_max[2])}°
-    </div>
-    """,
-    unsafe_allow_html=True
-)
 # -----------------------
 # LIVE TIDAL CURVE
 # -----------------------
@@ -367,20 +369,20 @@ st.plotly_chart(
     fig,
     use_container_width=True
 )
-st.subheader("🌙 Moon")
+st.subheader("📅 Forecast")
 
 st.markdown(
     f"""
     <div style="
     background:#fdeef6;
-    padding:15px;
+    padding:8px;
     border-radius:12px;
     ">
-    <b>Phase:</b> {phase_name}
-    <br>
-    <b>Age:</b> {round(phase,1)} days
-    <br>
-    <b>Illumination:</b> {illumination_percent}%
+    <b>{pd.to_datetime(forecast_dates[0]).strftime("%a")}</b> {round(forecast_max[0])}°
+    &nbsp;&nbsp;|&nbsp;&nbsp;
+    <b>{pd.to_datetime(forecast_dates[1]).strftime("%a")}</b> {round(forecast_max[1])}°
+    &nbsp;&nbsp;|&nbsp;&nbsp;
+    <b>{pd.to_datetime(forecast_dates[2]).strftime("%a")}</b> {round(forecast_max[2])}°
     </div>
     """,
     unsafe_allow_html=True
