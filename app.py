@@ -365,7 +365,7 @@ fig.add_trace(
 )
 
 fig.update_layout(
-    height=300,
+    height=100,
     plot_bgcolor="white",
     paper_bgcolor="white",
     xaxis_title="Time",
