@@ -381,10 +381,8 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-
-
 st.markdown(
-    "<h4 style='color:#FFE1AD;'>🌊 Tides</h6>",
+    "<div style='color:#4A90E2;font-size:22px;font-weight:600;'>🌊 Tides</div>",
     unsafe_allow_html=True
 )
 
