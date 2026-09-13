@@ -236,17 +236,7 @@ sea_temp = water_data["hours"][0]["waterTemperature"]["sg"]
 # -----------------------
 
 
-today_high_time = pd.to_datetime(
-    today_high["time"]
-).tz_convert(
-    "Europe/London"
-).strftime("%H:%M")
 
-today_low_time = pd.to_datetime(
-    today_low["time"]
-).tz_convert(
-    "Europe/London"
-).strftime("%H:%M")
 now = datetime.now(UTC)
 sea_df = pd.DataFrame(sea_level_data["data"])
 
