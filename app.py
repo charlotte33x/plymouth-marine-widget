@@ -381,7 +381,8 @@ st.markdown("#### 🌊 Tides")
 st.markdown(
     f"""
     <div style="
-    background: rgba(245, 240, 221, 0.95);
+    background: #FFC8DD;
+    color:#B9FAF8;
     padding:8px;
     border-radius:12px;
     ">
@@ -475,7 +476,8 @@ st.markdown("#### 🌙 Moon")
 st.markdown(
     f"""
     <div style="
-    background: rgba(245, 240, 221, 0.65);
+    background:#FFAFCC;
+    color:#ADFFFC;
     padding:8px;
     border-radius:12px;
     ">
