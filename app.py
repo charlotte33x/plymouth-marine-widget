@@ -374,25 +374,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-st.markdown("#### 🌙 Moon")
-st.markdown(
-    f"""
-    <div style="
-    background:#fdeef6;
-    padding:8px;
-    border-radius:12px;
-    ">
-    <b>Phase:</b> {phase_name}
-    <br>
-    <b>Age:</b> {round(phase,1)} days
-    <br>
-    <b>Illumination:</b> {illumination_percent}%
-    <br>
-    <b>🌕 Next Full Moon:</b> {days_until_full} days
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+
 
 st.markdown("#### 🌊 Tides")
 
@@ -489,5 +471,23 @@ st.plotly_chart(
     fig,
     use_container_width=True
 )
-
+st.markdown("#### 🌙 Moon")
+st.markdown(
+    f"""
+    <div style="
+    background:#fdeef6;
+    padding:8px;
+    border-radius:12px;
+    ">
+    <b>Phase:</b> {phase_name}
+    <br>
+    <b>Age:</b> {round(phase,1)} days
+    <br>
+    <b>Illumination:</b> {illumination_percent}%
+    <br>
+    <b>🌕 Next Full Moon:</b> {days_until_full} days
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
