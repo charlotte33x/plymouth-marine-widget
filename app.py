@@ -13,7 +13,7 @@ st.markdown("""
 <style>
 
 .stApp {
-    background-color: #D8B0E6;
+    background-color: #FFF3F8;
 }
 
 div[data-testid="stMetric"] {
@@ -382,7 +382,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 st.markdown(
-    "<div style='color:#4A90E2;font-size:22px;font-weight:600;'>🌊 Tides</div>",
+    "<div style='color:#4A90E2;font-size:18px;font-weight:500;'>🌊 Tides</div>",
     unsafe_allow_html=True
 )
 
