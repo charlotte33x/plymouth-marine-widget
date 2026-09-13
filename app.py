@@ -137,7 +137,7 @@ else:
 def get_stormglass_data():
 
     start = arrow.now().floor("day")
-   end = arrow.now().shift(days=2).floor("day")
+    end = arrow.now().shift(days=2).floor("day")
 
     headers = {
         "Authorization": API_KEY
