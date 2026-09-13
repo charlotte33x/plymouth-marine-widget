@@ -345,7 +345,7 @@ st.markdown("#### 🌡️ Temperature")
 st.markdown(
     f"""
     <div style="
-    background:#fdeef6;
+    background: rgba(245, 240, 221, 0.75);
     padding:8px;
     border-radius:12px;
     ">
@@ -361,7 +361,7 @@ st.markdown("##### 📅 3 Day Forecast")
 st.markdown(
     f"""
     <div style="
-    background:#FFFAE2;
+    background: rgba(245, 240, 221, 0.85);
     padding:8px;
     border-radius:12px;
     ">
@@ -381,7 +381,7 @@ st.markdown("#### 🌊 Tides")
 st.markdown(
     f"""
     <div style="
-    background:#fdeef6;
+    background: rgba(245, 240, 221, 0.95);
     padding:8px;
     border-radius:12px;
     ">
@@ -475,7 +475,7 @@ st.markdown("#### 🌙 Moon")
 st.markdown(
     f"""
     <div style="
-    background:#fdeef6;
+    background: rgba(245, 240, 221, 0.65);
     padding:8px;
     border-radius:12px;
     ">
