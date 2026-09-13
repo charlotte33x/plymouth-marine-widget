@@ -361,7 +361,7 @@ st.markdown("##### 📅 3 Day Forecast")
 st.markdown(
     f"""
     <div style="
-    background:#fdeef6;
+    background:#FFFAE2;
     padding:8px;
     border-radius:12px;
     ">
