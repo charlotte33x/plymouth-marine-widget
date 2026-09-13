@@ -207,6 +207,27 @@ low_tides = [
     tide for tide in extremes_data["data"]
     if tide["type"] == "low"
 ]
+high_times = []
+
+for tide in high_tides:
+    high_times.append(
+        pd.to_datetime(
+            tide["time"]
+        ).tz_convert(
+            "Europe/London"
+        ).strftime("%H:%M")
+    )
+
+low_times = []
+
+for tide in low_tides:
+    low_times.append(
+        pd.to_datetime(
+            tide["time"]
+        ).tz_convert(
+            "Europe/London"
+        ).strftime("%H:%M")
+    )
 sea_level_data = stormglass["sea_level"]
 sea_temp = water_data["hours"][0]["waterTemperature"]["sg"]
 
@@ -214,15 +235,7 @@ sea_temp = water_data["hours"][0]["waterTemperature"]["sg"]
 # CURRENT TIDE
 # -----------------------
 
-today_high = max(
-    high_tides,
-    key=lambda x: x["height"]
-)
 
-today_low = min(
-    low_tides,
-    key=lambda x: x["height"]
-)
 today_high_time = pd.to_datetime(
     today_high["time"]
 ).tz_convert(
@@ -406,9 +419,14 @@ st.markdown(
     <br>
     <b>Next {next_tide_type}:</b> {next_tide_time} • {next_tide_height:.2f}m
     <br>
-    <b>High:</b> {today_high_time} • {today_high["height"]:.2f}m
+    <b>Highs Today</b>
     <br>
-    <b>Low:</b> {today_low_time} • {today_low["height"]:.2f}m
+    <b>Highs:</b> {high_times[0]} • {high_times[1]}
+    
+    <br><br>
+    
+    <b>Lows today</b>
+    <b>Lows:</b> {low_times[0]} • {low_times[1]}
     <br>
     <b>State:</b> {tidal_influence}
     </div>
