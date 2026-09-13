@@ -270,7 +270,7 @@ for event in extremes_data["data"]:
 
     if event_time.to_pydatetime() > now:
         future_extremes.append(event)
-
+st.write(extremes_data["data"])
 if future_extremes:
 
     next_tide = future_extremes[0]
