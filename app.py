@@ -340,12 +340,15 @@ uk_time = datetime.now(
 st.caption(
     f"Updated {uk_time.strftime('%H:%M')}"
 )
-st.markdown("#### 🌡️ Temperature")
+st.markdown(
+    "<h4 style='color:#ffefd9;'>🌡️ Temperature</h4>",
+    unsafe_allow_html=True
+)
 
 st.markdown(
     f"""
     <div style="
-    background: rgba(245, 240, 221, 0.75);
+    background:#FFAFCC;
     padding:8px;
     border-radius:12px;
     ">
@@ -356,12 +359,15 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-st.markdown("##### 📅 3 Day Forecast")
+st.markdown(
+    "<h4 style='color:#5B8DEF;'>📅 3 Day Forecast</h4>",
+    unsafe_allow_html=True
+)
 
 st.markdown(
     f"""
     <div style="
-    background: rgba(245, 240, 221, 0.85);
+    background:#FFAFCC;
     padding:8px;
     border-radius:12px;
     ">
@@ -376,13 +382,16 @@ st.markdown(
 )
 
 
-st.markdown("#### 🌊 Tides")
+st.markdown(
+    "<h4 style='color:#FFE1AD;'>🌊 Tides</h4>",
+    unsafe_allow_html=True
+)
 
 st.markdown(
     f"""
     <div style="
-    background: #FFC8DD;
-    color:#B9FAF8;
+    background:#FFAFCC;
+    color:#a2d2ff;
     padding:8px;
     border-radius:12px;
     ">
@@ -477,7 +486,7 @@ st.markdown(
     f"""
     <div style="
     background:#FFAFCC;
-    color:#ADFFFC;
+    color:#ADCBFF;
     padding:8px;
     border-radius:12px;
     ">
