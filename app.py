@@ -368,6 +368,7 @@ st.markdown(
     f"""
     <div style="
     background:#FFAFCC;
+    color:#cdb4db;
     padding:8px;
     border-radius:12px;
     ">
@@ -481,7 +482,10 @@ st.plotly_chart(
     fig,
     use_container_width=True
 )
-st.markdown("#### 🌙 Moon")
+st.markdown(
+    "<h4 style='color:#7D4B73;'>🌙 Moon</h4>",
+    unsafe_allow_html=True
+)
 st.markdown(
     f"""
     <div style="
