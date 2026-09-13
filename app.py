@@ -23,7 +23,7 @@ div[data-testid="stMetric"] {
 }
 
 div[data-testid="stAlert"] {
-    background-color: #ffe4f1;
+    background-color: #FFFAE2;
     border: none;
 }
 
