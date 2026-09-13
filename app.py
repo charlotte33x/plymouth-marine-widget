@@ -409,13 +409,7 @@ st.markdown(
     <br>
     <b>Next {next_tide_type}:</b> {next_tide_time} • {next_tide_height:.2f}m
     <br>
-    <b>Highs Today</b>
-    <br>
     <b>Highs:</b> {high_times[0]} • {high_times[1]}
-    
-    <br><br>
-    
-    <b>Lows today</b>
     <b>Lows:</b> {low_times[0]} • {low_times[1]}
     <br>
     <b>State:</b> {tidal_influence}
