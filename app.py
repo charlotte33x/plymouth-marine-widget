@@ -4,6 +4,7 @@ import arrow
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+import numpy as np
 
 from astral import moon
 from datetime import date, datetime, UTC
@@ -205,6 +206,29 @@ sea_temp = water_data["hours"][0]["waterTemperature"]["sg"]
 # -----------------------
 
 now = datetime.now(UTC)
+sea_df = pd.DataFrame(sea_level_data["data"])
+
+sea_df["time"] = pd.to_datetime(sea_df["time"])
+
+sea_df = sea_df.sort_values("time")
+
+current_timestamp = pd.Timestamp.now(tz="UTC")
+
+sea_df["seconds"] = (
+    sea_df["time"] - sea_df["time"].min()
+).dt.total_seconds()
+
+current_seconds = (
+    current_timestamp - sea_df["time"].min()
+).total_seconds()
+
+current_height = float(
+    np.interp(
+        current_seconds,
+        sea_df["seconds"],
+        sea_df["sg"]
+    )
+)
 
 closest_point = min(
     sea_level_data["data"],
@@ -214,7 +238,6 @@ closest_point = min(
     )
 )
 
-current_height = closest_point["sg"]
 
 current_index = sea_level_data["data"].index(
     closest_point
