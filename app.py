@@ -137,7 +137,7 @@ else:
 def get_stormglass_data():
 
     start = arrow.now().floor("day")
-    end = arrow.now().shift(days=1).floor("day")
+   end = arrow.now().shift(days=2).floor("day")
 
     headers = {
         "Authorization": API_KEY
@@ -258,7 +258,6 @@ else:
 # -----------------------
 # NEXT TIDE
 # -----------------------
-
 future_extremes = []
 
 for event in extremes_data["data"]:
@@ -270,20 +269,21 @@ for event in extremes_data["data"]:
 
     if event_time.to_pydatetime() > now:
         future_extremes.append(event)
-st.write(extremes_data["data"])
+
 if future_extremes:
 
     next_tide = future_extremes[0]
 
     next_tide_time = pd.to_datetime(
         next_tide["time"]
-    ).strftime("%H:%M")
+    ).tz_convert("Europe/London").strftime("%H:%M")
 
     next_tide_height = next_tide["height"]
+    next_tide_type = next_tide["type"].title()
 
 else:
 
-    next_tide_time = "--:--"
+    next_tide_time = "No Data"
     next_tide_height = 0
 
 # -----------------------
@@ -375,7 +375,7 @@ st.markdown(
     <br>
     <b>Tide:</b> {status}
     <br>
-    <b>Next High:</b> {next_tide_time} • {next_tide_height:.2f}m
+    <b>Next {next_tide_type}:</b> {next_tide_time} • {next_tide_height:.2f}m
     <br>
     <b>State:</b> {tidal_influence}
     </div>
