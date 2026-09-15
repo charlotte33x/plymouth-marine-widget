@@ -349,9 +349,8 @@ st.markdown(
     <div style="
     background:rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
-    color:#125f7b;
-    padding:8px;
-    border-radius:12px;
+    padding:80px;
+    border-radius:120px;
     ">
     <b>Air:</b> {temperature}°C
     &nbsp;&nbsp;&nbsp;&nbsp;
@@ -367,7 +366,10 @@ st.markdown(
 
 st.markdown(
     f"""
-   
+    <div style="
+    background:rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    ">
     <b>{pd.to_datetime(forecast_dates[0]).strftime("%a")}</b> {round(forecast_max[0])}°
     &nbsp;&nbsp;|&nbsp;&nbsp;
     <b>{pd.to_datetime(forecast_dates[1]).strftime("%a")}</b> {round(forecast_max[1])}°
@@ -414,9 +416,8 @@ st.markdown(
     <div style="
     background:rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(20px);
-    color:#125f7b;
-    padding:8px;
-    border-radius:12px;
+    padding:10px;
+    border-radius:20px;
     ">
     <b>Phase:</b> {phase_name}
     <br>
