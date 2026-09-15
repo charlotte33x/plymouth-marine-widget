@@ -328,7 +328,7 @@ st.set_page_config(
     layout="wide"
 )
 st.markdown(
-    "<h4 style='color:#c0518f;'>🌊 Plymouth Marine</h4>",
+    "<div style='color:#4A90E2;font-size:18px;font-weight:500;'>🌊 Plymouth Marine</div>",
     unsafe_allow_html=True
 )
 import zoneinfo
@@ -341,10 +341,9 @@ st.caption(
     f"Updated {uk_time.strftime('%H:%M')}"
 )
 st.markdown(
-    "<h4 style='color:#ffefd9;'>🌡️ Temperature</h4>",
+    "<div style='color:#4A90E2;font-size:18px;font-weight:500;'>🌡️ Temperature</div>",
     unsafe_allow_html=True
 )
-
 st.markdown(
     f"""
     <div style="
@@ -360,7 +359,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 st.markdown(
-    "<h4 style='color:#5B8DEF;'>📅 3 Day Forecast</h4>",
+    "<div style='color:#4A90E2;font-size:18px;font-weight:500;'>📅 3 Day Forecast</div>",
     unsafe_allow_html=True
 )
 
@@ -385,7 +384,6 @@ st.markdown(
     "<div style='color:#4A90E2;font-size:18px;font-weight:500;'>🌊 Tides</div>",
     unsafe_allow_html=True
 )
-
 st.markdown(
     f"""
     <div style="
@@ -409,15 +407,32 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-
+st.markdown(
+    "<h4 style='color:#7D4B73;'>🌙 Moon</h5>",
+    unsafe_allow_html=True
+)
+st.markdown(
+    f"""
+    <div style="
+    background:FFE2ED;
+    color:#FCADFF;
+    padding:8px;
+    border-radius:12px;
+    ">
+    <b>Phase:</b> {phase_name}
+    <br>
+    <b>Age:</b> {round(phase,1)} days
+    <br>
+    <b>Illumination:</b> {illumination_percent}%
+    <br>
+    <b>🌕 Next Full Moon:</b> {days_until_full} days
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 # -----------------------
 # LIVE TIDAL CURVE
 # -----------------------
-
-
-
-
-
 df = pd.DataFrame(sea_level_data["data"])
 
 df["time"] = pd.to_datetime(df["time"])
@@ -480,27 +495,3 @@ st.plotly_chart(
     fig,
     use_container_width=True
 )
-st.markdown(
-    "<h4 style='color:#7D4B73;'>🌙 Moon</h5>",
-    unsafe_allow_html=True
-)
-st.markdown(
-    f"""
-    <div style="
-    background:FFE2ED;
-    color:#FCADFF;
-    padding:8px;
-    border-radius:12px;
-    ">
-    <b>Phase:</b> {phase_name}
-    <br>
-    <b>Age:</b> {round(phase,1)} days
-    <br>
-    <b>Illumination:</b> {illumination_percent}%
-    <br>
-    <b>🌕 Next Full Moon:</b> {days_until_full} days
-    </div>
-    """,
-    unsafe_allow_html=True
-)
-
