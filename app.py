@@ -13,7 +13,7 @@ st.markdown("""
 <style>
 
 .stApp {
-    background-color: #fcb8c9;
+    background-color: #fffff;
 }
 
 div[data-testid="stMetric"] {
@@ -367,12 +367,7 @@ st.markdown(
 
 st.markdown(
     f"""
-    <div style="
-    background:#DE9D95;
-    color:#CBEEF3;
-    border-left: 5px solid #4A90E2;
-    padding-left: 12px;
-    ">
+   
     <b>{pd.to_datetime(forecast_dates[0]).strftime("%a")}</b> {round(forecast_max[0])}°
     &nbsp;&nbsp;|&nbsp;&nbsp;
     <b>{pd.to_datetime(forecast_dates[1]).strftime("%a")}</b> {round(forecast_max[1])}°
@@ -388,12 +383,6 @@ st.markdown(
 )
 st.markdown(
     f"""
-    <div style="
-    background:#F49CBB;
-    color:#CBEEF3;
-    border-bottom: 2px solid #4A90E2;
-
-    ">
     <b>Current:</b> {current_height:.2f}m
     <br>
     <b>Tide:</b> {status}
@@ -415,12 +404,6 @@ st.markdown(
 )
 st.markdown(
     f"""
-    <div style="
-    background:#CBEEF3;
-    color:#F49CBB;
-    padding:8px;
-    border-radius: 999px;
-    ">
     <b>Phase:</b> {phase_name}
     <br>
     <b>Age:</b> {round(phase,1)} days
