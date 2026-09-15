@@ -328,7 +328,7 @@ st.set_page_config(
     layout="wide"
 )
 st.markdown(
-    "<div style='color:#4A90E2;font-size:18px;font-weight:500;'>🌊 Plymouth Marine</div>",
+    "<div style='color:#ff97b7;font-size:18px;font-weight:500;'>🌊 Plymouth Sea Conditions</div>",
     unsafe_allow_html=True
 )
 import zoneinfo
@@ -341,14 +341,14 @@ st.caption(
     f"Updated {uk_time.strftime('%H:%M')}"
 )
 st.markdown(
-    "<div style='color:#125f7b;font-size:18px;font-weight:500;'>🌡️ Temperature</div>",
+    "<div style='color:#ff97b7;font-size:18px;font-weight:500;'>🌡️ Temperature</div>",
     unsafe_allow_html=True
 )
 st.markdown(
     f"""
     <div style="
     background:#fcb8c9;
-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     color:#125f7b;
     padding:8px;
     border-radius:12px;
@@ -361,7 +361,7 @@ backdrop-filter: blur(10px);
     unsafe_allow_html=True
 )
 st.markdown(
-    "<div style='color:#b56b8d;font-size:18px;font-weight:500;'>📅 3 Day Forecast</div>",
+    "<div style='color:#ff97b7;font-size:18px;font-weight:500;'>📅 3 Day Forecast</div>",
     unsafe_allow_html=True
 )
 
@@ -378,7 +378,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 st.markdown(
-    "<div style='color:#4A90E2;font-size:18px;font-weight:500;'>🌊 Tides</div>",
+    "<div style='color:#ff97b7;font-size:18px;font-weight:500;'>🌊 Tides</div>",
     unsafe_allow_html=True
 )
 st.markdown(
@@ -399,7 +399,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 st.markdown(
-    "<div style='color:#F49CBB;font-size:18px;font-weight:500;'>🌙 Moon</div>",
+    "<div style='color:#ff97b7;font-size:18px;font-weight:500;'>🌙 Moon</div>",
     unsafe_allow_html=True
 )
 st.markdown(
