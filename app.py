@@ -409,7 +409,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 st.markdown(
-    <div style='color:#F49CBB;font-size:18px;font-weight:500;'>🌙 Moon</div>",
+    "<div style='color:#F49CBB;font-size:18px;font-weight:500;'>🌙 Moon</div>",
     unsafe_allow_html=True
 )
 st.markdown(
