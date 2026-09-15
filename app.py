@@ -13,7 +13,7 @@ st.markdown("""
 <style>
 
 .stApp {
-    background-color: #fffff;
+    background-color: #ffcad4;
 }
 
 div[data-testid="stMetric"] {
@@ -347,7 +347,7 @@ st.markdown(
 st.markdown(
     f"""
     <div style="
-    background:#fcb8c9;
+    background:#fffff;
     backdrop-filter: blur(10px);
     color:#125f7b;
     padding:8px;
@@ -383,6 +383,13 @@ st.markdown(
 )
 st.markdown(
     f"""
+    <div style="
+    background:#fffff;
+    backdrop-filter: blur(15px);
+    color:#125f7b;
+    padding:8px;
+    border-radius:12px;
+    ">
     <b>Current:</b> {current_height:.2f}m
     <br>
     <b>Tide:</b> {status}
@@ -404,6 +411,13 @@ st.markdown(
 )
 st.markdown(
     f"""
+    <div style="
+    background:#fffff;
+    backdrop-filter: blur(20px);
+    color:#125f7b;
+    padding:8px;
+    border-radius:12px;
+    ">
     <b>Phase:</b> {phase_name}
     <br>
     <b>Age:</b> {round(phase,1)} days
