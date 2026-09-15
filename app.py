@@ -347,8 +347,9 @@ st.markdown(
 st.markdown(
     f"""
     <div style="
-    background:#CBEEF3;
-    color:#125f7b
+    background: rgba(255,255,255,0.25);
+backdrop-filter: blur(10px);
+    color:#125f7b;
     padding:8px;
     border-radius:12px;
     ">
@@ -369,8 +370,8 @@ st.markdown(
     <div style="
     background:#DE9D95;
     color:#CBEEF3;
-    padding:8px;
-    border-radius:12px;
+    border-left: 5px solid #4A90E2;
+    padding-left: 12px;
     ">
     <b>{pd.to_datetime(forecast_dates[0]).strftime("%a")}</b> {round(forecast_max[0])}°
     &nbsp;&nbsp;|&nbsp;&nbsp;
@@ -390,8 +391,8 @@ st.markdown(
     <div style="
     background:#F49CBB;
     color:#CBEEF3;
-    padding:8px;
-    border-radius:12px;
+    border-bottom: 2px solid #4A90E2;
+
     ">
     <b>Current:</b> {current_height:.2f}m
     <br>
@@ -418,7 +419,7 @@ st.markdown(
     background:#CBEEF3;
     color:#F49CBB;
     padding:8px;
-    border-radius:12px;
+    border-radius: 999px;
     ">
     <b>Phase:</b> {phase_name}
     <br>
