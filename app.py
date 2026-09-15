@@ -347,7 +347,7 @@ st.markdown(
 st.markdown(
     f"""
     <div style="
-    background:#fffff;
+    background:rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
     color:#125f7b;
     padding:8px;
@@ -412,7 +412,7 @@ st.markdown(
 st.markdown(
     f"""
     <div style="
-    background:#fffff;
+    background:rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(20px);
     color:#125f7b;
     padding:8px;
