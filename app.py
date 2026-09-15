@@ -347,7 +347,7 @@ st.markdown(
 st.markdown(
     f"""
     <div style="
-    background:#f1c6d5;
+    background:#CBEEF3;
     color:#125f7b
     padding:8px;
     border-radius:12px;
@@ -367,8 +367,8 @@ st.markdown(
 st.markdown(
     f"""
     <div style="
-    background:#125f7b;
-    color:#f1c6d5;
+    background:#DE9D95;
+    color:#CBEEF3;
     padding:8px;
     border-radius:12px;
     ">
@@ -388,8 +388,8 @@ st.markdown(
 st.markdown(
     f"""
     <div style="
-    background:#125f7b;
-    color:#d891a1;
+    background:#F49CBB;
+    color:#CBEEF3;
     padding:8px;
     border-radius:12px;
     ">
@@ -409,14 +409,14 @@ st.markdown(
     unsafe_allow_html=True
 )
 st.markdown(
-    "<h4 style='color:#7D4B73;'>🌙 Moon</h5>",
+    <div style='color:#F49CBB;font-size:18px;font-weight:500;'>🌙 Moon</div>",
     unsafe_allow_html=True
 )
 st.markdown(
     f"""
     <div style="
-    background:FFE2ED;
-    color:#FCADFF;
+    background:#CBEEF3;
+    color:#F49CBB;
     padding:8px;
     border-radius:12px;
     ">
