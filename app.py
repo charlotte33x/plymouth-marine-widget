@@ -349,8 +349,6 @@ st.markdown(
     <div style="
     background:rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
-    padding:80px;
-    border-radius:120px;
     ">
     <b>Air:</b> {temperature}°C
     &nbsp;&nbsp;&nbsp;&nbsp;
@@ -388,9 +386,6 @@ st.markdown(
     <div style="
     background:rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(15px);
-    color:#125f7b;
-    padding:8px;
-    border-radius:12px;
     ">
     <b>Current:</b> {current_height:.2f}m
     <br>
@@ -416,8 +411,6 @@ st.markdown(
     <div style="
     background:rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(20px);
-    padding:10px;
-    border-radius:20px;
     ">
     <b>Phase:</b> {phase_name}
     <br>
@@ -437,6 +430,13 @@ df = pd.DataFrame(sea_level_data["data"])
 
 df["time"] = pd.to_datetime(df["time"])
 df["height"] = df["sg"]
+st.markdown(
+    f"""
+    <div style="
+    background:rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    ">
+    
 
 fig = px.line(
     df,
