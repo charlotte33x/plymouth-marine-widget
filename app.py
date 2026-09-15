@@ -435,7 +435,10 @@ st.markdown(
     <div style="
     background:rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(15px);
-    ">
+    </div>
+    """,
+    unsafe_allow_html=True
+)
     
 
 fig = px.line(
