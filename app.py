@@ -341,13 +341,14 @@ st.caption(
     f"Updated {uk_time.strftime('%H:%M')}"
 )
 st.markdown(
-    "<div style='color:#4A90E2;font-size:18px;font-weight:500;'>🌡️ Temperature</div>",
+    "<div style='color:#125f7b;font-size:18px;font-weight:500;'>🌡️ Temperature</div>",
     unsafe_allow_html=True
 )
 st.markdown(
     f"""
     <div style="
-    background:#FFAFCC;
+    background:#f1c6d5;
+    color:#125f7b
     padding:8px;
     border-radius:12px;
     ">
@@ -359,15 +360,15 @@ st.markdown(
     unsafe_allow_html=True
 )
 st.markdown(
-    "<div style='color:#4A90E2;font-size:18px;font-weight:500;'>📅 3 Day Forecast</div>",
+    "<div style='color:#b56b8d;font-size:18px;font-weight:500;'>📅 3 Day Forecast</div>",
     unsafe_allow_html=True
 )
 
 st.markdown(
     f"""
     <div style="
-    background:#FFAFCC;
-    color:#cdb4db;
+    background:#125f7b;
+    color:#f1c6d5;
     padding:8px;
     border-radius:12px;
     ">
@@ -387,8 +388,8 @@ st.markdown(
 st.markdown(
     f"""
     <div style="
-    background:#FFAFCC;
-    color:#a2d2ff;
+    background:#125f7b;
+    color:#d891a1;
     padding:8px;
     border-radius:12px;
     ">
