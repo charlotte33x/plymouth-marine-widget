@@ -13,7 +13,7 @@ st.markdown("""
 <style>
 
 .stApp {
-    background-color: #ffcad4;
+    background-color: #FFE2ED;
 }
 
 div[data-testid="stMetric"] {
